@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const http = axios.create({ baseURL: 'http://localhost:8001' })
+const http = axios.create({ baseURL: import.meta.env.VITE_API_BASE || '' })
 
 export const getOverview        = ()           => http.get('/api/packing/overview')
 export const getDailyTrend      = (days = 30)  => http.get('/api/packing/daily-trend', { params: { days } })
